@@ -1,0 +1,53 @@
+name:                xenomorph
+version:             0.0.1.0
+github:              "mercurytechnologies/xenomorph"
+license:             BSD3
+author:              Rebecca Skinner
+maintainer:          engineers@mercury.com
+copyright:           2022 Mercury
+
+extra-source-files:
+- README.md
+- changelog.md
+
+# Metadata used when publishing your package
+# synopsis:            make synopsis here
+# category:            make category here
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/mercurytechnologies/xenomorph#readme>
+
+default-extensions:
+  - ImportQualifiedPost
+
+dependencies:
+- base >= 4.7 && < 5
+- xeno
+- vector
+- text
+- unordered-containers
+- bytestring
+- html-entities
+
+library:
+  source-dirs: src
+  ghc-options:
+    - -Wall
+    - -Wcompat
+
+tests:
+  xenomorph-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -O2
+    dependencies:
+    - xenomorph
+    - hspec
+    build-tools:
+    - hspec-discover
