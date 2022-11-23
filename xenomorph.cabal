@@ -34,7 +34,7 @@ library
       ImportQualifiedPost
   ghc-options: -Wall -Wcompat
   build-depends:
-      base >=4.7 && <5
+      base >=4.14 && <5
     , bytestring
     , html-entities
     , text
@@ -56,7 +56,7 @@ test-suite xenomorph-test
   build-tool-depends:
       hspec-discover:hspec-discover
   build-depends:
-      base >=4.7 && <5
+      base >=4.14 && <5
     , bytestring
     , hspec
     , html-entities
