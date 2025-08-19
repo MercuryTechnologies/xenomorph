@@ -22,15 +22,15 @@ jobs:
           #           - ghc: "head"
           #             experimental: true
     steps:
-      - uses: actions/checkout@v2
-      - uses: haskell/actions/setup@v1
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
+      - uses: haskell/actions/setup@a4ad32dbde5324e3c4ebed7d8e4cd8b94c3ed28e # v1.2.12
         id: setup-haskell-cabal
         with:
           ghc-version: ${{ matrix.ghc }}
           cabal-version: ${{ matrix.cabal }}
       - run: cabal v2-update
       - run: cabal v2-freeze $CONFIG
-      - uses: actions/cache@v2
+      - uses: actions/cache@8492260343ad570701412c2f464a5877dc76bace # v2
         with:
           path: |
             ${{ steps.setup-haskell-cabal.outputs.cabal-store }}
